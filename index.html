@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Geografi XII | Revolusi Industri dan Perubahan Ruang</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: Georgia, "Times New Roman", serif;
+    background:#f4f1e9;
+    color:#283536;
+    line-height:1.7;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    height:72px;
+    background:#183b3f;
+    color:#f4f1e9;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    border-bottom:4px solid #c9a66b;
+}
+
+.logo{
+    font-size:20px;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#d8b778;
+}
+
+.header-nav{
+    display:flex;
+    gap:8px;
+}
+
+.header-nav button{
+    background:transparent;
+    border:0;
+    color:#f4f1e9;
+    padding:8px 13px;
+    font-size:14px;
+}
+
+.header-nav button:hover{
+    color:#d8b778;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
+    display:none;
+    min-height:calc(100vh - 72px);
+}
+
+.page.active{
+    display:block;
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home{
+    background:#f4f1e9;
+}
+
+.home-content{
+    width:88%;
+    max-width:1200px;
+    margin:auto;
+
+    padding:90px 0 60px;
+
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:60px;
+    align-items:center;
+}
+
+.kicker{
+    color:#8a6a36;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.home-title{
+    font-size:54px;
+    line-height:1.08;
+    font-weight:normal;
+    color:#183b3f;
+    margin-bottom:25px;
+}
+
+.home-description{
+    font-size:18px;
+    max-width:650px;
+    color:#536163;
+    margin-bottom:30px;
+}
+
+.primary-button{
+    background:#183b3f;
+    color:white;
+    border:0;
+    padding:13px 25px;
+    font-size:15px;
+}
+
+.primary-button:hover{
+    background:#28565a;
+}
+
+.home-visual{
+    height:430px;
+    background:#dce3dc;
+    border:1px solid #b7c2bb;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.map-grid{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(#b7c2bb 1px, transparent 1px),
+        linear-gradient(90deg,#b7c2bb 1px,transparent 1px);
+
+    background-size:40px 40px;
+
+    opacity:.6;
+}
+
+.continent{
+    position:absolute;
+    width:260px;
+    height:150px;
+
+    background:#a9b69f;
+
+    border-radius:55% 40% 50% 35%;
+
+    top:100px;
+    left:80px;
+
+    transform:rotate(-12deg);
+}
+
+.continent.two{
+    width:150px;
+    height:90px;
+
+    top:220px;
+    left:260px;
+
+    transform:rotate(20deg);
+}
+
+.map-label{
+    position:absolute;
+    background:#183b3f;
+    color:white;
+    padding:5px 10px;
+    font-size:11px;
+}
+
+.label-one{
+    top:80px;
+    right:30px;
+}
+
+.label-two{
+    bottom:60px;
+    left:30px;
+}
+
+.visual-caption{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+
+    background:rgba(24,59,63,.92);
+    color:white;
+
+    padding:15px 20px;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   CONTENT LAYOUT
+========================================================= */
+
+.content{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    padding:55px 0;
+}
+
+.page-heading{
+    margin-bottom:35px;
+    border-bottom:1px solid #c9c2b3;
+    padding-bottom:25px;
+}
+
+.page-heading small{
+    color:#8a6a36;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.page-heading h1{
+    color:#183b3f;
+    font-size:40px;
+    font-weight:normal;
+    margin:8px 0;
+}
+
+.page-heading p{
+    color:#657071;
+}
+
+
+/* =========================================================
+   SIDEBAR + ARTICLE
+========================================================= */
+
+.learning-layout{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:45px;
+}
+
+.sidebar{
+    align-self:start;
+    position:sticky;
+    top:95px;
+}
+
+.sidebar-title{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#8a6a36;
+    margin-bottom:12px;
+}
+
+.sidebar button{
+    display:block;
+    width:100%;
+    text-align:left;
+
+    border:0;
+    border-left:3px solid transparent;
+
+    background:transparent;
+
+    padding:10px 12px;
+
+    color:#4c5a5b;
+
+    margin-bottom:3px;
+}
+
+.sidebar button:hover,
+.sidebar button.active{
+    color:#183b3f;
+    border-left-color:#c9a66b;
+    background:#e8e4d9;
+}
+
+.article{
+    max-width:850px;
+}
+
+.article-section{
+    background:#fffdf8;
+    border:1px solid #ddd7c9;
+    padding:32px;
+    margin-bottom:25px;
+}
+
+.article-section h2{
+    color:#183b3f;
+    font-size:26px;
+    font-weight:normal;
+    margin-bottom:15px;
+}
+
+.article-section h3{
+    color:#765d32;
+    font-size:19px;
+    margin:22px 0 8px;
+}
+
+.article-section p{
+    margin-bottom:13px;
+}
+
+.article-section ul{
+    margin:10px 0 15px 22px;
+}
+
+.note{
+    background:#edf0e9;
+    border-left:4px solid #788d76;
+    padding:17px 20px;
+    margin:20px 0;
+}
+
+.key{
+    color:#765d32;
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+    margin-top:30px;
+    position:relative;
+}
+
+.timeline:before{
+    content:"";
+    position:absolute;
+
+    left:25px;
+    top:0;
+    bottom:0;
+
+    width:2px;
+
+    background:#c9a66b;
+}
+
+.timeline-item{
+    position:relative;
+
+    padding-left:75px;
+    margin-bottom:35px;
+}
+
+.timeline-number{
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    background:#183b3f;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:14px;
+}
+
+.timeline-card{
+    background:#fffdf8;
+    border:1px solid #ddd7c9;
+    padding:25px;
+}
+
+.timeline-card h2{
+    color:#183b3f;
+    font-weight:normal;
+}
+
+.timeline-year{
+    color:#8a6a36;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   FACTOR GRID
+========================================================= */
+
+.factor-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.factor{
+    background:#f1eee5;
+    border:1px solid #d9d2c2;
+    padding:20px;
+}
+
+.factor strong{
+    color:#183b3f;
+}
+
+
+/* =========================================================
+   FLOW DIAGRAM
+========================================================= */
+
+.flow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:30px 0;
+}
+
+.flow-box{
+    background:#183b3f;
+    color:white;
+    padding:13px 18px;
+    text-align:center;
+    min-width:130px;
+}
+
+.arrow{
+    color:#8a6a36;
+    font-size:20px;
+}
+
+
+/* =========================================================
+   CITY DIAGRAM
+========================================================= */
+
+.city-diagram{
+    background:#e1e6df;
+    border:1px solid #bdc7be;
+    min-height:350px;
+
+    position:relative;
+
+    margin:25px 0;
+    overflow:hidden;
+}
+
+.city-road{
+    position:absolute;
+    background:#89928c;
+}
+
+.road-horizontal{
+    width:100%;
+    height:35px;
+    top:55%;
+}
+
+.road-vertical{
+    height:100%;
+    width:35px;
+    left:48%;
+}
+
+.building{
+    position:absolute;
+    background:#687b75;
+    bottom:55%;
+    border:2px solid #536660;
+}
+
+.b1{
+    width:70px;
+    height:100px;
+    left:12%;
+}
+
+.b2{
+    width:55px;
+    height:75px;
+    left:24%;
+}
+
+.b3{
+    width:90px;
+    height:130px;
+    right:13%;
+}
+
+.b4{
+    width:50px;
+    height:65px;
+    right:28%;
+}
+
+.city-label{
+    position:absolute;
+    background:#fffdf8;
+    border:1px solid #c9c2b3;
+    padding:5px 9px;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   STUDY CASE
+========================================================= */
+
+.case{
+    background:#183b3f;
+    color:#f5f1e7;
+    padding:35px;
+    margin-top:30px;
+}
+
+.case h2{
+    color:#d8b778;
+    font-weight:normal;
+    margin-bottom:15px;
+}
+
+.case-question{
+    background:#f8f5ec;
+    color:#283536;
+    padding:20px;
+    margin-top:15px;
+}
+
+.case-question button{
+    margin-top:10px;
+    background:#183b3f;
+    color:white;
+    border:0;
+    padding:8px 15px;
+}
+
+.answer{
+    display:none;
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid #d4cec0;
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-wrap{
+    max-width:850px;
+    margin:auto;
+}
+
+.quiz-progress{
+    height:5px;
+    background:#d8d3c7;
+    margin-bottom:25px;
+}
+
+.quiz-progress-bar{
+    height:100%;
+    width:0;
+    background:#183b3f;
+}
+
+.quiz-card{
+    background:#fffdf8;
+    border:1px solid #d9d2c2;
+    padding:35px;
+}
+
+.question-number{
+    color:#8a6a36;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.question{
+    font-size:23px;
+    color:#183b3f;
+    margin:10px 0 25px;
+}
+
+.option{
+    width:100%;
+    display:block;
+
+    background:#f5f2e9;
+
+    border:1px solid #d5cec0;
+
+    padding:13px 16px;
+
+    text-align:left;
+
+    margin:9px 0;
+
+    color:#283536;
+}
+
+.option:hover{
+    background:#e8e4d9;
+}
+
+.option.correct{
+    background:#dce8d9;
+    border-color:#71866d;
+}
+
+.option.wrong{
+    background:#ead8d5;
+    border-color:#9b6c65;
+}
+
+.feedback{
+    display:none;
+
+    padding:15px;
+    margin-top:20px;
+
+    background:#edf0e9;
+
+    border-left:4px solid #788d76;
+}
+
+.quiz-next{
+    display:none;
+
+    margin-top:20px;
+
+    background:#183b3f;
+    color:white;
+
+    border:0;
+
+    padding:11px 22px;
+}
+
+.result{
+    text-align:center;
+    background:#fffdf8;
+    border:1px solid #d9d2c2;
+    padding:50px 30px;
+}
+
+.result-score{
+    font-size:64px;
+    color:#183b3f;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    background:#183b3f;
+    color:#d9dfdb;
+    padding:30px 6%;
+    text-align:center;
+    font-size:13px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+    .header{
+        height:auto;
+        min-height:70px;
+        flex-direction:column;
+        gap:5px;
+        padding:12px;
+    }
+
+    .header-nav{
+        overflow-x:auto;
+        width:100%;
+        justify-content:center;
+    }
+
+    .home-content{
+        grid-template-columns:1fr;
+        padding-top:50px;
+    }
+
+    .home-title{
+        font-size:40px;
+    }
+
+    .home-visual{
+        height:300px;
+    }
+
+    .learning-layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:static;
+        display:flex;
+        overflow-x:auto;
+        border-bottom:1px solid #d3ccbe;
+        padding-bottom:10px;
+    }
+
+    .sidebar button{
+        min-width:max-content;
+        border-left:0;
+        border-bottom:3px solid transparent;
+    }
+
+    .sidebar button:hover,
+    .sidebar button.active{
+        border-bottom-color:#c9a66b;
+    }
+
+    .factor-grid{
+        grid-template-columns:1fr;
+    }
+
+    .page-heading h1{
+        font-size:32px;
+    }
+
+    .article-section{
+        padding:22px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="logo">
+GEOGRAFI <span>XII</span>
+</div>
+
+<nav class="header-nav">
+
+<button onclick="showPage('home')">
+Beranda
+</button>
+
+<button onclick="showPage('materi')">
+Materi
+</button>
+
+<button onclick="showPage('quiz')">
+Evaluasi
+</button>
+
+</nav>
+
+</header>
+
+
+
+<!-- =====================================================
+HOME
+===================================================== -->
+
+<section id="home" class="page active home">
+
+<div class="home-content">
+
+<div>
+
+<div class="kicker">
+Pembelajaran Geografi Kelas XII
+</div>
+
+<h1 class="home-title">
+Revolusi Industri dan Perubahan Ruang
+</h1>
+
+<p class="home-description">
+
+Bagaimana perkembangan teknologi dari mesin uap
+hingga kecerdasan buatan mengubah kegiatan manusia,
+pola ruang, perkembangan kota, ekonomi, dan kesejahteraan?
+
+</p>
+
+<button class="primary-button"
+onclick="showPage('materi')">
+
+Mulai Pembelajaran →
+
+</button>
+
+</div>
+
+
+<div class="home-visual">
+
+<div class="map-grid"></div>
+
+<div class="continent"></div>
+<div class="continent two"></div>
+
+<div class="map-label label-one">
+PERKEMBANGAN KOTA
+</div>
+
+<div class="map-label label-two">
+KAWASAN INDUSTRI
+</div>
+
+<div class="visual-caption">
+Teknologi • Industri • Transportasi • Kota • Masyarakat
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+MATERI
+===================================================== -->
+
+<section id="materi" class="page">
+
+<div class="content">
+
+<div class="page-heading">
+
+<small>Materi Pembelajaran</small>
+
+<h1>
+Pembangunan Wilayah & Revolusi Industri
+</h1>
+
+<p>
+Pilih bagian materi pada menu di samping.
+</p>
+
+</div>
+
+
+<div class="learning-layout">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-title">
+Daftar Materi
+</div>
+
+<button class="active"
+onclick="article('pengantar',this)">
+Pengantar
+</button>
+
+<button onclick="article('revolusi',this)">
+Tahapan Revolusi Industri
+</button>
+
+<button onclick="article('ruang',this)">
+Perubahan Ruang
+</button>
+
+<button onclick="article('ekonomi',this)">
+Ekonomi & Kesejahteraan
+</button>
+
+<button onclick="article('industri4',this)">
+Industri 4.0 & Tata Kota
+</button>
+
+<button onclick="article('kasus',this)">
+Studi Kasus
+</button>
+
+</aside>
+
+
+
+<!-- ARTICLE -->
+
+<main class="article">
+
+
+<!-- PENGANTAR -->
+
+<div id="pengantar" class="article-content">
+
+<div class="article-section">
+
+<h2>Pengantar</h2>
+
+<p>
+Revolusi Industri merupakan perubahan besar dalam
+cara manusia menghasilkan barang dan jasa yang
+berkaitan dengan perkembangan teknologi, energi,
+organisasi produksi, dan sistem ekonomi.
+</p>
+
+<p>
+Dalam kajian Geografi, Revolusi Industri tidak hanya
+dipahami sebagai perkembangan teknologi. Perubahan
+tersebut juga menyebabkan perubahan pada
+<strong>ruang muka bumi</strong>.
+</p>
+
+<div class="note">
+
+<strong>Pertanyaan utama:</strong>
+
+Bagaimana perkembangan teknologi dapat mengubah
+lokasi industri, pola permukiman, transportasi,
+penggunaan lahan, struktur kota, serta kesejahteraan
+masyarakat?
+
+</div>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>Hubungan Teknologi dan Ruang</h2>
+
+<div class="flow">
+
+<div class="flow-box">
+Teknologi
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Produksi
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Transportasi
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Perubahan Ruang
+</div>
+
+</div>
+
+<p>
+Perubahan teknologi dapat memengaruhi lokasi kegiatan
+ekonomi, kebutuhan infrastruktur, mobilitas penduduk,
+dan penggunaan lahan.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- REVOLUSI -->
+
+<div id="revolusi" class="article-content" style="display:none;">
+
+<div class="article-section">
+
+<h2>Sejarah dan Tahapan Revolusi Industri</h2>
+
+<p>
+Perkembangan Revolusi Industri dapat dipahami melalui
+empat tahapan utama.
+</p>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+1.0
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">
+ABAD KE-18
+</div>
+
+<h2>Revolusi Industri 1.0</h2>
+
+<p>
+Ditandai dengan penggunaan mesin uap dan
+mekanisasi produksi.
+</p>
+
+<ul>
+<li>Mesin uap</li>
+<li>Batu bara</li>
+<li>Industri tekstil</li>
+<li>Kereta api</li>
+<li>Mekanisasi</li>
+</ul>
+
+<p>
+<strong>Pengaruh ruang:</strong>
+munculnya kota industri dan berkembangnya
+jaringan transportasi.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+2.0
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">
+AKHIR ABAD KE-19 – AWAL ABAD KE-20
+</div>
+
+<h2>Revolusi Industri 2.0</h2>
+
+<p>
+Penggunaan listrik dan sistem produksi massal
+meningkatkan kapasitas industri.
+</p>
+
+<ul>
+<li>Listrik</li>
+<li>Produksi massal</li>
+<li>Lini perakitan</li>
+<li>Industri baja</li>
+<li>Minyak bumi</li>
+</ul>
+
+<p>
+<strong>Pengaruh ruang:</strong>
+perluasan kawasan industri dan jaringan transportasi.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+3.0
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">
+ABAD KE-20
+</div>
+
+<h2>Revolusi Industri 3.0</h2>
+
+<p>
+Komputer, elektronik, dan teknologi informasi
+mulai digunakan dalam proses produksi.
+</p>
+
+<ul>
+<li>Komputer</li>
+<li>Elektronik</li>
+<li>Internet</li>
+<li>Robotika</li>
+<li>Otomatisasi</li>
+</ul>
+
+<p>
+<strong>Pengaruh ruang:</strong>
+berkembangnya pusat teknologi dan perubahan pola kerja.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+4.0
+</div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">
+ABAD KE-21
+</div>
+
+<h2>Revolusi Industri 4.0</h2>
+
+<p>
+Menggabungkan teknologi digital, konektivitas,
+data, dan sistem cerdas.
+</p>
+
+<ul>
+<li>Internet of Things</li>
+<li>Artificial Intelligence</li>
+<li>Big Data</li>
+<li>Cloud Computing</li>
+<li>Robotika</li>
+</ul>
+
+<p>
+<strong>Pengaruh ruang:</strong>
+munculnya konsep smart city, smart mobility,
+smart factory, dan perubahan pola aktivitas perkotaan.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- RUANG -->
+
+<div id="ruang" class="article-content" style="display:none;">
+
+<div class="article-section">
+
+<h2>Pengaruh Revolusi Industri terhadap Keruangan</h2>
+
+<p>
+Perkembangan industri menyebabkan perubahan
+pada pola ruang dan penggunaan lahan.
+</p>
+
+
+<div class="factor-grid">
+
+<div class="factor">
+
+<strong>Urbanisasi</strong>
+
+<p>
+Pertumbuhan industri menarik penduduk menuju
+wilayah yang menyediakan lapangan pekerjaan.
+</p>
+
+</div>
+
+
+<div class="factor">
+
+<strong>Kawasan Industri</strong>
+
+<p>
+Industri berkembang di lokasi dengan akses
+transportasi, energi, bahan baku, tenaga kerja,
+dan pasar.
+</p>
+
+</div>
+
+
+<div class="factor">
+
+<strong>Transportasi</strong>
+
+<p>
+Perkembangan industri mendorong pembangunan
+jalan, rel, pelabuhan, dan bandara.
+</p>
+
+</div>
+
+
+<div class="factor">
+
+<strong>Penggunaan Lahan</strong>
+
+<p>
+Lahan dapat mengalami perubahan fungsi menjadi
+industri, permukiman, perdagangan, dan jasa.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>Perubahan Penggunaan Lahan</h2>
+
+<div class="flow">
+
+<div class="flow-box">
+Pertanian
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Industri
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Permukiman
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Perdagangan & Jasa
+</div>
+
+</div>
+
+<p>
+Perubahan tersebut tidak selalu terjadi dengan pola
+yang sama di setiap wilayah. Kondisi fisik,
+aksesibilitas, kebijakan, dan perkembangan ekonomi
+ikut menentukan perubahan ruang.
+</p>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>Dampak terhadap Lingkungan</h2>
+
+<ul>
+<li>Peningkatan pencemaran udara</li>
+<li>Pencemaran air</li>
+<li>Peningkatan volume limbah</li>
+<li>Perubahan tutupan lahan</li>
+<li>Berkurangnya ruang terbuka hijau</li>
+<li>Peningkatan kebutuhan energi</li>
+</ul>
+
+<div class="note">
+
+Teknologi juga dapat digunakan untuk meningkatkan
+efisiensi energi, pemantauan lingkungan, pengelolaan
+limbah, dan pengembangan transportasi yang lebih
+efisien.
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- EKONOMI -->
+
+<div id="ekonomi" class="article-content" style="display:none;">
+
+<div class="article-section">
+
+<h2>Pengaruh terhadap Ekonomi dan Kesejahteraan</h2>
+
+<p>
+Revolusi Industri membawa perubahan pada produktivitas,
+jenis pekerjaan, distribusi barang, dan pola kegiatan
+ekonomi.
+</p>
+
+
+<div class="factor-grid">
+
+<div class="factor">
+
+<strong>Peningkatan Produktivitas</strong>
+
+<p>
+Teknologi memungkinkan proses produksi menjadi
+lebih cepat dan efisien.
+</p>
+
+</div>
+
+
+<div class="factor">
+
+<strong>Lapangan Pekerjaan</strong>
+
+<p>
+Perkembangan industri menciptakan jenis pekerjaan
+baru, meskipun beberapa pekerjaan juga mengalami
+perubahan karena otomatisasi.
+</p>
+
+</div>
+
+
+<div class="factor">
+
+<strong>Konektivitas</strong>
+
+<p>
+Transportasi dan teknologi informasi mempercepat
+hubungan antardaerah.
+</p>
+
+</div>
+
+
+<div class="factor">
+
+<strong>Kesenjangan</strong>
+
+<p>
+Perbedaan akses teknologi dan keterampilan dapat
+menimbulkan kesenjangan antarindividu maupun wilayah.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>Rantai Perubahan</h2>
+
+<div class="flow">
+
+<div class="flow-box">
+Teknologi
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Produksi
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Pekerjaan
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Ekonomi
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Kesejahteraan
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- INDUSTRI 4 -->
+
+<div id="industri4" class="article-content" style="display:none;">
+
+<div class="article-section">
+
+<h2>Revolusi Industri 4.0 dan Tata Ruang Kota</h2>
+
+<p>
+Revolusi Industri 4.0 membawa perubahan pada cara
+masyarakat menggunakan ruang kota. Data dan konektivitas
+menjadi semakin penting dalam pengelolaan wilayah.
+</p>
+
+
+<div class="city-diagram">
+
+<div class="city-road road-horizontal"></div>
+
+<div class="city-road road-vertical"></div>
+
+<div class="building b1"></div>
+<div class="building b2"></div>
+<div class="building b3"></div>
+<div class="building b4"></div>
+
+<div class="city-label" style="top:20px;left:20px;">
+Kawasan Perkotaan
+</div>
+
+<div class="city-label" style="bottom:20px;right:20px;">
+Transportasi & Data
+</div>
+
+</div>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>1. Smart City</h2>
+
+<p>
+Smart city memanfaatkan teknologi informasi dan data
+untuk mendukung pengelolaan kota.
+</p>
+
+<ul>
+<li>Pengelolaan lalu lintas</li>
+<li>Pemantauan kualitas lingkungan</li>
+<li>Pelayanan publik digital</li>
+<li>Pengelolaan energi</li>
+<li>Pengelolaan sampah</li>
+</ul>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>2. Smart Mobility</h2>
+
+<p>
+Teknologi mengubah cara masyarakat bergerak di dalam kota.
+</p>
+
+<ul>
+<li>Transportasi online</li>
+<li>Transportasi publik terintegrasi</li>
+<li>Informasi perjalanan real-time</li>
+<li>Kendaraan listrik</li>
+<li>Sistem transportasi berbasis data</li>
+</ul>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>3. E-Commerce dan Ruang Kota</h2>
+
+<p>
+Perdagangan digital dapat mengubah kebutuhan terhadap
+ruang perdagangan dan distribusi.
+</p>
+
+<p>
+Pertumbuhan marketplace dapat meningkatkan kebutuhan
+terhadap gudang, pusat distribusi, dan jaringan logistik.
+</p>
+
+<div class="note">
+
+<strong>Perubahan penting:</strong>
+
+Pusat aktivitas ekonomi tidak selalu harus berada
+di pusat kota. Aktivitas dapat tersebar mengikuti
+jaringan digital, permukiman, akses transportasi,
+dan kebutuhan distribusi.
+
+</div>
+
+</div>
+
+
+<div class="article-section">
+
+<h2>4. Kota Berbasis Data</h2>
+
+<p>
+Big Data, AI, IoT, dan GIS dapat digunakan untuk
+membantu memahami berbagai fenomena perkotaan.
+</p>
+
+<div class="flow">
+
+<div class="flow-box">
+Data
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Analisis
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Perencanaan
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Kebijakan
+</div>
+
+</div>
+
+<p>
+Contohnya adalah analisis kepadatan penduduk,
+kemacetan, penggunaan lahan, kebutuhan transportasi,
+hingga pemetaan risiko bencana.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- KASUS -->
+
+<div id="kasus" class="article-content" style="display:none;">
+
+<div class="article-section">
+
+<h2>Studi Kasus Geografi</h2>
+
+<p>
+
+Sebuah kota besar mengalami pertumbuhan pesat
+marketplace, transportasi online, dan sistem kerja
+digital. Pada saat yang sama, kebutuhan terhadap
+gudang dan layanan pengiriman meningkat.
+
+</p>
+
+<p>
+
+Gunakan konsep keruangan untuk menganalisis
+kemungkinan perubahan yang terjadi.
+
+</p>
+
+</div>
+
+
+<div class="case">
+
+<h2>Analisis</h2>
+
+
+<div class="case-question">
+
+<strong>
+1. Apa perubahan ruang yang mungkin terjadi?
+</strong>
+
+<br>
+
+<button onclick="toggleAnswer('a1')">
+Lihat Pembahasan
+</button>
+
+<div id="a1" class="answer">
+
+Pertumbuhan perdagangan digital dapat meningkatkan
+kebutuhan ruang untuk gudang, pusat distribusi,
+dan fasilitas logistik.
+
+</div>
+
+</div>
+
+
+<div class="case-question">
+
+<strong>
+2. Bagaimana transportasi dapat berubah?
+</strong>
+
+<br>
+
+<button onclick="toggleAnswer('a2')">
+Lihat Pembahasan
+</button>
+
+<div id="a2" class="answer">
+
+Mobilitas barang dan manusia dapat semakin bergantung
+pada sistem transportasi yang terintegrasi dan
+informasi perjalanan berbasis data.
+
+</div>
+
+</div>
+
+
+<div class="case-question">
+
+<strong>
+3. Apa yang perlu diperhatikan dalam tata ruang?
+</strong>
+
+<br>
+
+<button onclick="toggleAnswer('a3')">
+Lihat Pembahasan
+</button>
+
+<div id="a3" class="answer">
+
+Perencanaan perlu mempertimbangkan aksesibilitas,
+penggunaan lahan, transportasi, lingkungan,
+kebutuhan masyarakat, dan pemerataan infrastruktur.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</main>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+QUIZ
+===================================================== -->
+
+<section id="quiz" class="page">
+
+<div class="content">
+
+<div class="page-heading">
+
+<small>Evaluasi Pembelajaran</small>
+
+<h1>
+Latihan Soal
+</h1>
+
+<p>
+Uji pemahamanmu mengenai Revolusi Industri dan perubahan ruang.
+</p>
+
+</div>
+
+
+<div class="quiz-wrap">
+
+<div class="quiz-progress">
+
+<div id="quizProgress"
+class="quiz-progress-bar">
+</div>
+
+</div>
+
+
+<div id="quizArea"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+Geografi Kelas XII
+<br>
+Pembangunan Wilayah, Revolusi Industri, dan Pengaruhnya terhadap Ruang Muka Bumi serta Kesejahteraan
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function showPage(id){
+
+    document.querySelectorAll(".page").forEach(function(page){
+
+        page.classList.remove("active");
+
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(id === "quiz"){
+        startQuiz();
+    }
+
+}
+
+
+/* =========================================================
+   ARTICLE NAVIGATION
+========================================================= */
+
+function article(id,button){
+
+    document.querySelectorAll(".article-content").forEach(function(item){
+
+        item.style.display="none";
+
+    });
+
+    document.getElementById(id).style.display="block";
+
+
+    document.querySelectorAll(".sidebar button").forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+}
+
+
+/* =========================================================
+   CASE STUDY
+========================================================= */
+
+function toggleAnswer(id){
+
+    const answer=document.getElementById(id);
+
+    if(answer.style.display==="block"){
+
+        answer.style.display="none";
+
+    }else{
+
+        answer.style.display="block";
+
+    }
+
+}
+
+
+/* =========================================================
+   QUIZ DATA
+========================================================= */
+
+const questions=[
+
+{
+q:"Revolusi Industri 1.0 terutama ditandai oleh...",
+options:[
+"Penggunaan kecerdasan buatan",
+"Penggunaan mesin uap dan mekanisasi",
+"Penggunaan internet",
+"Penggunaan Big Data"
+],
+answer:1,
+explain:"Revolusi Industri 1.0 ditandai oleh penggunaan mesin uap dan mekanisasi produksi."
+},
+
+{
+q:"Salah satu karakteristik utama Revolusi Industri 2.0 adalah...",
+options:[
+"Produksi massal dan penggunaan listrik",
+"Penggunaan AI",
+"Internet of Things",
+"Cloud Computing"
+],
+answer:0,
+explain:"Revolusi Industri 2.0 berkembang melalui elektrifikasi dan produksi massal."
+},
+
+{
+q:"Revolusi Industri 3.0 berkaitan erat dengan...",
+options:[
+"Mesin uap",
+"Komputerisasi dan otomatisasi",
+"Batu bara",
+"Produksi menggunakan tenaga manusia saja"
+],
+answer:1,
+explain:"Revolusi Industri 3.0 ditandai komputerisasi, elektronik, teknologi informasi, dan otomatisasi."
+},
+
+{
+q:"Teknologi Internet of Things paling berkaitan dengan...",
+options:[
+"Revolusi Industri 1.0",
+"Revolusi Industri 2.0",
+"Revolusi Industri 3.0",
+"Revolusi Industri 4.0"
+],
+answer:3,
+explain:"IoT merupakan salah satu teknologi utama dalam Revolusi Industri 4.0."
+},
+
+{
+q:"Perpindahan penduduk menuju kota akibat perkembangan kegiatan ekonomi disebut...",
+options:[
+"Transmigrasi",
+"Urbanisasi",
+"Evakuasi",
+"Imigrasi"
+],
+answer:1,
+explain:"Urbanisasi adalah perpindahan penduduk dari wilayah perdesaan menuju wilayah perkotaan."
+},
+
+{
+q:"Perubahan lahan pertanian menjadi kawasan industri merupakan contoh...",
+options:[
+"Perubahan penggunaan lahan",
+"Perubahan iklim",
+"Perubahan cuaca",
+"Perubahan musim"
+],
+answer:0,
+explain:"Perubahan fungsi suatu lahan merupakan perubahan penggunaan lahan."
+},
+
+{
+q:"Salah satu faktor penting dalam menentukan lokasi industri adalah...",
+options:[
+"Aksesibilitas",
+"Warna bangunan",
+"Jumlah taman",
+"Jenis pakaian penduduk"
+],
+answer:0,
+explain:"Aksesibilitas penting karena industri membutuhkan hubungan dengan bahan baku, tenaga kerja, pasar, dan jaringan transportasi."
+},
+
+{
+q:"Salah satu dampak positif perkembangan industri adalah...",
+options:[
+"Penurunan produktivitas",
+"Peningkatan produktivitas",
+"Terputusnya transportasi",
+"Menurunnya inovasi"
+],
+answer:1,
+explain:"Teknologi industri dapat meningkatkan produktivitas dan efisiensi produksi."
+},
+
+{
+q:"Salah satu tantangan Revolusi Industri 4.0 adalah...",
+options:[
+"Kesenjangan keterampilan",
+"Berhentinya perkembangan teknologi",
+"Hilangnya seluruh pekerjaan",
+"Berhentinya perdagangan"
+],
+answer:0,
+explain:"Perubahan teknologi dapat meningkatkan kebutuhan terhadap keterampilan baru dan menyebabkan kesenjangan keterampilan."
+},
+
+{
+q:"Konsep Smart City menggunakan teknologi terutama untuk...",
+options:[
+"Mengelola kota secara lebih terintegrasi",
+"Menghilangkan transportasi",
+"Menghapus ruang terbuka",
+"Mengurangi informasi"
+],
+answer:0,
+explain:"Smart City memanfaatkan teknologi dan data untuk mendukung pengelolaan kota."
+},
+
+{
+q:"Big Data dalam perencanaan kota dapat digunakan untuk menganalisis...",
+options:[
+"Pola kemacetan",
+"Warna pakaian",
+"Selera musik",
+"Jenis makanan"
+],
+answer:0,
+explain:"Data dalam jumlah besar dapat membantu menganalisis pola lalu lintas, mobilitas, kepadatan, dan penggunaan ruang."
+},
+
+{
+q:"Pertumbuhan marketplace dapat meningkatkan kebutuhan terhadap...",
+options:[
+"Pusat distribusi dan gudang",
+"Pengurangan jaringan logistik",
+"Pengurangan transportasi",
+"Lahan tanpa akses"
+],
+answer:0,
+explain:"Perdagangan digital membutuhkan jaringan distribusi, gudang, dan fasilitas logistik."
+},
+
+{
+q:"Smart Mobility berkaitan dengan...",
+options:[
+"Pengelolaan mobilitas menggunakan teknologi",
+"Penghapusan seluruh transportasi",
+"Pengurangan konektivitas",
+"Penghapusan jalan"
+],
+answer:0,
+explain:"Smart Mobility menggunakan teknologi untuk mendukung mobilitas dan sistem transportasi."
+},
+
+{
+q:"GIS dapat digunakan dalam tata ruang untuk...",
+options:[
+"Menganalisis data spasial",
+"Menghilangkan peta",
+"Menghapus data wilayah",
+"Mengurangi informasi lokasi"
+],
+answer:0,
+explain:"GIS digunakan untuk mengolah, menyimpan, menganalisis, dan menampilkan data yang memiliki informasi lokasi."
+},
+
+{
+q:"Hubungan yang tepat antara Revolusi Industri dan ruang adalah...",
+options:[
+"Perkembangan teknologi dapat menyebabkan perubahan penggunaan ruang",
+"Teknologi tidak berhubungan dengan ruang",
+"Industri tidak membutuhkan transportasi",
+"Perkembangan teknologi selalu mengurangi aktivitas kota"
+],
+answer:0,
+explain:"Perubahan teknologi dapat memengaruhi kegiatan ekonomi, transportasi, permukiman, penggunaan lahan, dan struktur ruang."
+}
+
+];
+
+
+let current=0;
+let score=0;
+let answered=false;
+
+
+/* =========================================================
+   START QUIZ
+========================================================= */
+
+function startQuiz(){
+
+    current=0;
+    score=0;
+    answered=false;
+
+    showQuestion();
+
+}
+
+
+/* =========================================================
+   SHOW QUESTION
+========================================================= */
+
+function showQuestion(){
+
+    const q=questions[current];
+
+    const area=document.getElementById("quizArea");
+
+    const progress=(current/questions.length)*100;
+
+    document.getElementById("quizProgress").style.width=
+        progress+"%";
+
+
+    area.innerHTML=`
+
+    <div class="quiz-card">
+
+        <div class="question-number">
+        SOAL ${current+1} DARI ${questions.length}
+        </div>
+
+        <div class="question">
+        ${q.q}
+        </div>
+
+        <div id="options">
+
+        ${q.options.map(function(option,index){
+
+            return`
+
+            <button
+            class="option"
+            onclick="answer(${index})">
+
+            ${String.fromCharCode(65+index)}.
+            ${option}
+
+            </button>
+
+            `;
+
+        }).join("")}
+
+        </div>
+
+
+        <div id="feedback"
+        class="feedback">
+        </div>
+
+
+        <button
+        id="next"
+        class="quiz-next"
+        onclick="nextQuestion()">
+
+        Soal Berikutnya →
+
+        </button>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+function answer(selected){
+
+    if(answered) return;
+
+    answered=true;
+
+    const q=questions[current];
+
+    const options=document.querySelectorAll(".option");
+
+    const feedback=document.getElementById("feedback");
+
+
+    options.forEach(function(option,index){
+
+        option.disabled=true;
+
+        if(index===q.answer){
+
+            option.classList.add("correct");
+
+        }
+
+    });
+
+
+    if(selected===q.answer){
+
+        score+=10;
+
+        feedback.innerHTML=
+        "<strong>Benar.</strong> "+q.explain;
+
+    }else{
+
+        options[selected].classList.add("wrong");
+
+        feedback.innerHTML=
+        "<strong>Belum tepat.</strong> "+q.explain;
+
+    }
+
+
+    feedback.style.display="block";
+
+    document.getElementById("next").style.display="inline-block";
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion(){
+
+    current++;
+
+    answered=false;
+
+    if(current<questions.length){
+
+        showQuestion();
+
+    }else{
+
+        showResult();
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResult(){
+
+    document.getElementById("quizProgress").style.width="100%";
+
+    let message;
+
+    if(score>=130){
+
+        message="Pemahaman materi sangat baik.";
+
+    }else if(score>=100){
+
+        message="Pemahaman materi sudah baik.";
+
+    }else if(score>=70){
+
+        message="Masih ada beberapa bagian yang perlu dipelajari kembali.";
+
+    }else{
+
+        message="Pelajari kembali materi sebelum mencoba evaluasi lagi.";
+
+    }
+
+
+    document.getElementById("quizArea").innerHTML=`
+
+    <div class="result">
+
+        <div class="question-number">
+        HASIL EVALUASI
+        </div>
+
+        <div class="result-score">
+        ${score}
+        </div>
+
+        <h2>
+        dari 150 poin
+        </h2>
+
+        <p>
+        ${message}
+        </p>
+
+        <br>
+
+        <button
+        class="primary-button"
+        onclick="startQuiz()">
+
+        Ulangi Evaluasi
+
+        </button>
+
+        <button
+        class="primary-button"
+        onclick="showPage('materi')"
+        style="margin-left:8px;">
+
+        Kembali ke Materi
+
+        </button>
+
+    </div>
+
+    `;
+
+}
+
+</script>
+
+</body>
+</html>
